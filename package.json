@@ -1,0 +1,10 @@
+{
+	"scripts": {
+		"build": "parcel build src/index.html",
+		"start": "parcel src/index.html"
+	},
+	"devDependencies": {
+		"typescript": "^4.9.5",
+		"parcel": "^2.8.3"
+	}
+}
