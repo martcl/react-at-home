@@ -1,7 +1,6 @@
 import { Window } from './components/Code';
 import React, { render, useEffect, useState } from './react-at-home';
 
-
 const App = () => {
   const [count, setCount] = useState(0);
   const [name, setName] = useState('Martin Clementz');
@@ -34,7 +33,7 @@ const App = () => {
     <div>
       <div className='frontpage'>
         <div className="frontpage-content">
-          <h1>How does React work?</h1>
+          <h1>How does React work????</h1>
           <p>This is an experimental project where I try to build some of the core mechanics of React.</p>
           <img className="react-logo" src="/public/react-logo.png" alt="React logo" />
           {loading && <p>Loading...</p>}
@@ -68,13 +67,35 @@ const App = () => {
   );
 };
 
+const Child = ({ children }) => {
+  return (
+    <div id="child-div">
+      <div>{children}</div>
+      <div>
+        <h1>TEST1</h1>
+      </div>
+      <div>
+        TEST2
+      </div>
+    </div>
+  )
+}
+
+const Mother = () => {
+  return (
+    <div id="mother-div">
+      <Child><div>REAL CHILD</div><h1>ANOTHER</h1></Child>
+    </div>
+  )
+}
+
 const Index = () => (
   <>
     <App />
   </>
 );
 
-render(<Index />, document.getElementById('root'));
+render(<Mother />, document.getElementById('root'));
 
 // must export as default.
-export default Index;
+export default Mother;
