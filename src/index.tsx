@@ -6,13 +6,28 @@ const App = () => {
   const [count, setCount] = useState(0);
   const [name, setName] = useState('Martin Clementz');
 
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   const handleClick = () => {
     setCount(count + 1);
   };
 
-  // kinda broken
   useEffect(() => {
-    console.log('This should be called only once, on first mount. pliz');
+    console.log('useEffect called');
+    fetch("https://dog.ceo/api/breeds/image/random").then((res) =>
+      {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw res;
+        }
+      }).then((json) => {
+        
+        setData(json);
+      }).finally(() => {
+        setLoading(false);
+      });
   }, []);
 
   return (
@@ -22,6 +37,8 @@ const App = () => {
           <h1>How does React work?</h1>
           <p>This is an experimental project where I try to build some of the core mechanics of React.</p>
           <img className="react-logo" src="/public/react-logo.png" alt="React logo" />
+          {loading && <p>Loading...</p>}
+          {!loading && <img className="dog" src={data.message}></img>}
         </div>
         <Window title='react-at-home.ts' code=''>
           Test

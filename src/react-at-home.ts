@@ -71,12 +71,12 @@ export const useEffect = (callback, dependencies) => {
     globalState[stateIndex] = dependencies;
   }
   const currentState = globalState[stateIndex];
+  const hasUseEffectBeenCalled = currentState === dependencies;
   const hasDependenciesChanged = dependencies.some((dependency, index) => {
     return !Object.is(dependency, currentState[index]);
   });
   if (
-    hasDependenciesChanged ||
-    (currentState.length === 0 && dependencies.length === 0)
+    hasDependenciesChanged || hasUseEffectBeenCalled
   ) {
     callback();
     globalState[stateIndex] = dependencies;

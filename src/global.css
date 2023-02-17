@@ -39,6 +39,12 @@ body {
     margin: 0 auto;
 }
 
+.frontpage .frontpage-content .dog {
+    width: 200px;
+    height: 200;
+    margin: 0 auto;
+}
+
 @media screen and (max-width: 768px) {
     .frontpage {
         grid-template-columns: 1fr;
