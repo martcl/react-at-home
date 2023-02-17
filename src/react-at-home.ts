@@ -86,8 +86,15 @@ export const useEffect = (callback, dependencies) => {
 
 const reRender = () => {
   nextStateIndex = 0;
+
+  const focusedElement = document.activeElement;
+  const focusedElementId = focusedElement?.id;
+  
   rootContainerElement.innerHTML = '';
   render(Index(), document.getElementById('root'));
+  
+  document.getElementById(focusedElementId)?.focus();
+
 };
 
 

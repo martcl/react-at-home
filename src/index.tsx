@@ -28,6 +28,7 @@ const App = () => {
       <p>{count}</p>
       <h2>And we have input fields! (sorta)</h2>
       <input
+        id="name-input"
         type='text'
         value={name}
         oninput={(e) => setName(e.target.value)}
