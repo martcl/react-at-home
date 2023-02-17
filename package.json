@@ -1,7 +1,7 @@
 {
 	"scripts": {
-		"build": "parcel build src/index.html",
-		"start": "parcel src/index.html"
+		"build": "parcel build src/index.html public/**/*",
+		"start": "parcel src/index.html public/**/*"
 	},
 	"devDependencies": {
 		"typescript": "^4.9.5",

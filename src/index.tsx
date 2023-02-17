@@ -1,5 +1,6 @@
-import { Header } from './components/Header';
+import { Window } from './components/Code';
 import React, { render, useEffect, useState } from './react-at-home';
+
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -15,20 +16,32 @@ const App = () => {
   }, []);
 
   return (
-    <div class='content'>
-      <h1>React at home</h1>
-      <p>
-        <span className='code'>react-at-home.ts</span> is a simple version of
-        Reactjs.
-      </p>
-      <p>It is a learning project to understand how React works.</p>
-      <p>It is not intended to be used in production.</p>
+    <div>
+      <div className='frontpage'>
+        <div className="frontpage-content">
+          <h1>How does React work?</h1>
+          <p>This is an experimental project where I try to build some of the core mechanics of React.</p>
+          <img className="react-logo" src="/public/react-logo.png" alt="React logo" />
+        </div>
+        <Window title='react-at-home.ts' code=''>
+          Test
+        </Window>
+      </div>
+      <h2>Functionality</h2>
+      <ul>
+        <li>rendering</li>
+        <li>useState</li>
+        <li>useEffect (sorta)</li>
+        <li>keep focus on rerendering</li>
+      </ul>
       <h2>We have buttons!</h2>
-      <button onclick={handleClick}>Klikk meg!</button>
+      <button id='click-btn' onclick={handleClick}>
+        Klikk meg!
+      </button>
       <p>{count}</p>
       <h2>And we have input fields! (sorta)</h2>
       <input
-        id="name-input"
+        id='name-input'
         type='text'
         value={name}
         oninput={(e) => setName(e.target.value)}
@@ -40,7 +53,6 @@ const App = () => {
 
 const Index = () => (
   <>
-    <Header />
     <App />
   </>
 );
